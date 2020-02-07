@@ -233,5 +233,12 @@ resource "aws_codebuild_project" "default" {
     report_build_status = var.report_build_status
   }
 
+
+  vpc_config {
+    vpc_id             = var.vpc_id
+    subnets            = var.vpc_subnet_ids
+    security_group_ids = var.vpc_security_group_ids
+  }
+
   tags = module.label.tags
 }
